@@ -743,6 +743,7 @@ void registerNewNeighbor(open_addr_t* address,
                             (errorparameter_t)2);
       return;
    }
+   // execute allocation on new neighbor registered
    sf0_notifyNewSlotframe();
    // add this neighbor
    if (isNeighbor(address)==FALSE) {

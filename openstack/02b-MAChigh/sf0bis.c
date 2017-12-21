@@ -37,6 +37,15 @@ sf0_vars_t sf0_vars;
 // schedule; Call 6P to ADD cells.
 // - If the order is to delete cells, select randomly from the currently allocated cells for the
 // neighbour. call 6P to DELETE cells.
+//  
+
+
+
+// To estimate the number of cells:
+// 
+
+//
+
 
 void sf0_bandwidthEstimate_task(void);
 // sixtop callback 
@@ -144,6 +153,10 @@ void sf0_bandwidthEstimate_task(void){
     // when scheduledCells<requiredCells, add one or more cell
     
     if (bw_outgoing <= bw_incoming+bw_self){
+        if (sixtop_setHandler(SIX_HANDLER_SF0)==FALSE){
+            // one sixtop transcation is happening, only one instance at one time
+            return;
+        }
         if (sf0_candidateAddCellList(celllist_add,bw_incoming+bw_self-bw_outgoing+1)==FALSE){
             // failed to get cell list to add
             return;
@@ -162,6 +175,10 @@ void sf0_bandwidthEstimate_task(void){
     } else {
         // remove cell(s)
         if ( (bw_incoming+bw_self) < (bw_outgoing-SF0THRESHOLD)) {
+            if (sixtop_setHandler(SIX_HANDLER_SF0)==FALSE){
+               // one sixtop transcation is happening, only one instance at one time
+               return;
+            }
             if (sf0_candidateRemoveCellList(celllist_delete,&neighbor,SF0THRESHOLD)==FALSE){
                 // failed to get cell list to delete
                 return;
