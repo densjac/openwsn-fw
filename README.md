@@ -22,7 +22,7 @@ To trigger:
 
 Install the dependencies to  start the server.
 
-```
+```sh
 $ sudo apt-get update
 $ mkdir openwsn
 $ sudo apt-get install -y git
@@ -43,11 +43,12 @@ $ sudo apt-get install -y gcc-arm-none-eabi
 $ sudo apt-get install -y gcc-msp430
 $ sudo apt-get install python-dev
 $ sudo apt-get install scons
+$ sudo pip install PySerial
 ```
 
 Clone proyects.
 
-```
+```sh
 $ mkdir openwsn
 $ cd openwsn/
 $ git clone https://github.com/densjac/openwsn-fw.git
@@ -60,40 +61,47 @@ $ git clone https://github.com/openwsn-berkeley/coap.git
 Prepare website environments 
 
 ```sh
-$ npm install --production
-$ NODE_ENV=production node app
+$ cd ~
+$ cd openwsn/
+$ cd openwsn-sw/
+$ sudo pip install -r requirements.txt
 ```
 
 
 
 Compile the firmware.
 
-```
+```sh
 $ cd ~
 $ cd openwsn/
+$ cd openwsn-fw/
 $ scons board=python toolchain=gcc oos_openwsn
 ```
 
 
 
 
-### How to run it
+### How change sixtop
 
-First Tab:
+Go to folder
 ```sh
-$ node app
+$ cd ~
+$ cd openwsn/
+$ cd openwsn-fw/
+$ cd openstack/02b-MAChigh
 ```
 
-Second Tab:
+Edit Files:
 ```sh
-$ gulp watch
+$ vi neighbors.c
+$ vi sf0.c
 ```
 
-(optional) Third:
+Test changes :
 ```sh
-$ karma test
+$ cd ~
+$ cd openwsn/
+$ cd openwsn-sw/
+$ sudo scons runweb --sim --simCount=10
 ```
-
-### Based on
-- overview: https://openwsn.atlassian.net/wiki/
-- source code: http://openwsn-berkeley.github.io/firmware/
+Check website in ip address:8000
