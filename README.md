@@ -106,3 +106,7 @@ $ cd software/openvisualizer
 $ sudo scons runweb --sim --simCount=10
 ```
 Check website in ip address:8080
+
+### Based on
+- overview: https://openwsn.atlassian.net/wiki/
+- source code: http://openwsn-berkeley.github.io/firmware/
