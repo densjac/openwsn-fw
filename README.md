@@ -18,15 +18,22 @@ To trigger:
 
 ### Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
 
-Install the dependencies and devDependencies and start the server.
 
-```sh
+Install the dependencies to  start the server.
+
+``
 $ cd dillinger
-$ npm install -d
-$ node app
+$ scons board=python toolchain=gcc oos_openwsn 
 ```
+
+Compile the firmware.
+
+``
+$ cd dillinger
+$ scons board=python toolchain=gcc oos_openwsn 
+```
+
 
 For production environments...
 
