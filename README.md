@@ -22,7 +22,7 @@ To trigger:
 
 Install the dependencies to  start the server.
 
-``
+```
 $ cd dillinger
 $ scons board=python toolchain=gcc oos_openwsn 
 ```
