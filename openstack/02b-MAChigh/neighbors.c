@@ -6,6 +6,7 @@
 #include "openserial.h"
 #include "IEEE802154E.h"
 #include "openrandom.h"
+#include "sf0.h"
 
 //=========================== variables =======================================
 
@@ -742,6 +743,7 @@ void registerNewNeighbor(open_addr_t* address,
                             (errorparameter_t)2);
       return;
    }
+   sf0_notifyNewSlotframe();
    // add this neighbor
    if (isNeighbor(address)==FALSE) {
       i=0;
