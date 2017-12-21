@@ -7,14 +7,14 @@ Some modification to the firmware that run on a mote in order to upgrade the sch
 To trigger: 
 - Verify that there has been a change in the number of used against any fo the neighbours.
 - For each neighbour, if it has changed the number of used cells from the previous slotframe:
--- Calculate the difference in the number of cells between timeslots: NEWCELL
--- Estimate the number of cells: NEWCELL+OVERPROVISION Even if NEWCELL is negative
+    - Calculate the difference in the number of cells between timeslots: NEWCELL
+    - Estimate the number of cells: NEWCELL+OVERPROVISION Even if NEWCELL is negative
 - Execute de allocation policy:
--- Below the interval  If REQUIREDCELLS<(SCHEDULEDCELLS-SF0THRESH), delete one or more cells
--- Within the interval If (SCHEDULEDCELLS-SF0THRESH)<=REQUIREDCELLS<=SCHEDULEDCELLS, do nothing
--- Above the interval  If SCHEDULEDCELLS<REQUIREDCELLS, add one or more cells.
--- If new cells must be allocated, select a random number of cells from the available ones on the schedule; Call 6P to ADD cells.
--- If the order is to delete cells, select randomly from the currently allocated cells for the neighbour. call 6P to DELETE cells.
+    - Below the interval  If REQUIREDCELLS<(SCHEDULEDCELLS-SF0THRESH), delete one or more cells
+    - Within the interval If (SCHEDULEDCELLS-SF0THRESH)<=REQUIREDCELLS<=SCHEDULEDCELLS, do nothing
+    - Above the interval  If SCHEDULEDCELLS<REQUIREDCELLS, add one or more cells.
+    - If new cells must be allocated, select a random number of cells from the available ones on the schedule; Call 6P to ADD cells.
+    - If the order is to delete cells, select randomly from the currently allocated cells for the neighbour. call 6P to DELETE cells.
 
 ### Installation
 
