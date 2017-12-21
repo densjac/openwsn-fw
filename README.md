@@ -57,6 +57,14 @@ $ git clone https://github.com/openwsn-berkeley/coap.git
 ```
 
 
+Prepare website environments 
+
+```sh
+$ npm install --production
+$ NODE_ENV=production node app
+```
+
+
 
 Compile the firmware.
 
@@ -67,12 +75,7 @@ $ scons board=python toolchain=gcc oos_openwsn
 ```
 
 
-For production environments...
 
-```sh
-$ npm install --production
-$ NODE_ENV=production node app
-```
 
 ### How to run it
 
